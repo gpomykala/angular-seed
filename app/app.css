@@ -34,3 +34,7 @@ movie-thumb:hover {
   margin-bottom: 10px;
   max-height: 200px;
 }
+
+.moviedetails, .return-link {
+  float: right;
+}
