@@ -1,10 +1,16 @@
 'use strict';
 angular.module("movieDB.catalog", ['ui.bootstrap'])
-.controller('catalogCtrl', ['$scope', '$http', function ($scope, $http){
+.controller('catalogCtrl', ['$scope', 'movieAPIservice', function ($scope, movieAPIservice){
   $scope.currentPage = 1;
   $scope.pageSize = 12;
-  
-  $http.get('json/movies.json').success(function(data){
+  $scope.pageTitle = "Most watched this week";
+
+  movieAPIservice.getMovies().success(function(data){
     $scope.movieList=data;
   })
+
+  movieAPIservice.getGenres().success(function(data){
+    $scope.genreList=data;
+  })
+
 }])
